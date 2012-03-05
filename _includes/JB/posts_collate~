@@ -16,6 +16,7 @@ Usage:
         => 'post.next.date'
         
 -->{% endcomment %}
+{% include root %}
 
 {% if site.JB.posts_collate.provider == "custom" %}
   {% include custom/posts_collate %}
@@ -32,7 +33,7 @@ Usage:
       <ul>
     {% endif %}
   
-    <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ root }}{{ post.url }}">{{ post.title }}</a></li>
   
     {% if forloop.last %}
       </ul>
