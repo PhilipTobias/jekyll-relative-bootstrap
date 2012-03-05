@@ -36,7 +36,7 @@ This file is then called upon at the beginning of a page, layout, partial or hel
 
 Then the 'root' include can be used anywhere for example as found in 'index.md':
 
-    <a href="{{ root }}{{ post.url }}">{{ post.title }}</a></li>
+    <a href="{{ root }}{{ post.url }}">{{ post.title }}</a></li>  
   
 3.  A third file for CSS stylesheets is also created and located in '_includes'.  It is named 'relativecss'  its contents are:
 
