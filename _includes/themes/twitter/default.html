@@ -1,4 +1,4 @@
-{% include root %}
+{% include JB/setup %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="{{ root }}/index.html">{{ site.title }}</a>
+          <a class="brand" href="{{ root }}">{{ site.title }}</a>
           <ul class="nav">
             {% assign pages_list = site.pages %}
             {% assign group = 'navigation' %}

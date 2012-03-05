@@ -34,7 +34,7 @@ Here's a sample "posts list".
 
 <ul class="posts">
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ page.root }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ root }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 
