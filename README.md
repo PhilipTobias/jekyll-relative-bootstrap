@@ -14,6 +14,55 @@ I wanted a way to host a website on a shared network folder at work.  This is th
 
 The files generated can be hosted on a web server, on a local folder or in your Dropbox Public folder.  The dropbox folder acted funny with some of the link sharing, and that is why there are extra slashes in paths.  It would be nice to eliminate these slashes at some point.
 
+## Methods of Retaining Relative URL's throughout
+
+As taken from the Stack Overflow question mentioned above.  Three methods were used.
+
+1. YAML Headmatter indicating the root.  This YAML headmatter is later called upon in liquid templates.  For example:
+
+        ---
+        layout: page
+        title: Relative Bootstrap
+        root: .//
+        ---
+  
+2. Liquid templating code that saves and calls the root wherever you are.  This is done by creating a file and then calling that file wherever necessary.  The file is named 'root' and located in '_includes'  its contents are:
+
+	    {% capture root %}{% if page.root %}{{ page.root }}{% else %}{{ post.root }}{% endif %}{%endcapture%}
+
+This file is then called upon at the beginning of a page, layout, partial or helper like this:
+
+    {% include root %}
+
+Then the 'root' include can be used anywhere for example as found in 'index.md':
+
+    <a href="{{ root }}{{ post.url }}">{{ post.title }}</a></li>
+  
+3.  A third file for CSS stylesheets is also created and located in '_includes'.  It is named 'relativecss'  its contents are:
+
+        {% capture root %}{% if page.root %}{{ page.root }}{% else %}{{ post.root }}{% endif %}{%endcapture%}
+
+    <!-- Le styles -->
+      <link href="{{ root }}{{ ASSET_PATH }}/css/1.4.0/bootstrap.css" rel="stylesheet">
+      <link href="{{ root }}{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+It is then called upon in this manner on the base html layout:
+
+    {% include relativecss %}
+  
+Thats a quick summary of what was done to modify the jekyll-bootstrap and make it relative pathed throughout.
+
+## Problem
+
+I cannot figure out how to preserve the relative links and not have trailing slashes.  Every time I get red of the trailing slashes by modifying the YAML head matter, the site won't load without a web server.
+
+As an example this is what happens as the site is browsed:
+
+http://originalsurfmex.github.com/jekyll-relative-bootstrap///////////////////////index.html
+
+Any help in this would be much appreciated!
+  
+
 ## Other Projects
 
 Middleman is a great static website generator, however getting it to do this was too tricky and inconsistent.
