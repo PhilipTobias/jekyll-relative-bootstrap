@@ -18,7 +18,7 @@ The files generated can be hosted on a web server, on a local folder or in your 
 
 As taken from the Stack Overflow question mentioned above.  Three methods were used.
 
-1. YAML Headmatter indicating the root.  This YAML headmatter is later called upon in liquid templates.  For example:
+  1 - YAML Headmatter indicating the root.  This YAML headmatter is later called upon in liquid templates.  For example:
 
         ---
         layout: page
@@ -26,7 +26,7 @@ As taken from the Stack Overflow question mentioned above.  Three methods were u
         root: .//
         ---
   
-2. Liquid templating code that saves and calls the root wherever you are.  This is done by creating a file and then calling that file wherever necessary.  The file is named 'root' and located in '_includes'  its contents are:
+  2 - Liquid templating code that saves and calls the root wherever you are.  This is done by creating a file and then calling that file wherever necessary.  The file is named 'root' and located in '_includes'  its contents are:
 
 	    {% capture root %}{% if page.root %}{{ page.root }}{% else %}{{ post.root }}{% endif %}{%endcapture%}
 
@@ -38,7 +38,7 @@ Then the 'root' include can be used anywhere for example as found in 'index.md':
 
     <a href="{{ root }}{{ post.url }}">{{ post.title }}</a></li>  
   
-3.  A third file for CSS stylesheets is also created and located in '_includes'.  It is named 'relativecss'  its contents are:
+  3 -  A third file for CSS stylesheets is also created and located in '_includes'.  It is named 'relativecss'  its contents are:
 
         {% capture root %}{% if page.root %}{{ page.root }}{% else %}{{ post.root }}{% endif %}{%endcapture%}
 
