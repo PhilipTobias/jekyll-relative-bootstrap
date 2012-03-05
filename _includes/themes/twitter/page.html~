@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>{{ page.title }} <small>Jekyll from Server to File Manager to Dropbox</small></h1>
+  <h1>{{ page.title }} <small>work portfolio</small></h1>
 </div>
 
 <div class="row">
